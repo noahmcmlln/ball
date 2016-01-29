@@ -5,7 +5,6 @@ var ball = {
   speed: 3,
 
   display: function () {
-    // note that to access any of ball's properties, you must use dot notation, using the special keyword this
     ellipse(this.x, this.y, this.size, this.size);
   },
 
@@ -15,7 +14,7 @@ var ball = {
   },
 
   move: function () {
-    this.x += this.speed; // this line is the same as: this.x = this.x + 1;
+    this.x += this.speed;
   },
 
   checkForBounce: function () {
@@ -25,8 +24,6 @@ var ball = {
 
   bounce: function () {
     this.speed = -3;
-    // your code goes here; a hint: this will require making your own variable as well as defining this function
-    // another hint: notice that ball is defined using object literal notation
   },
 
   unbounce: function () {
@@ -34,7 +31,7 @@ var ball = {
   }
 };
 
-var setup = function() { // setup is called only when the sketch starts
+var setup = function() {
   createCanvas(600, 400);
 };
 
