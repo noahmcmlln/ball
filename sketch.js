@@ -1,10 +1,11 @@
 var ball = {
-  x: 20,
+  x: 300,
   y: 200,
   size: 15,
   speed: 3,
 
   display: function () {
+    fill('#ff99ff');
     ellipse(this.x, this.y, this.size, this.size);
   },
 
@@ -14,12 +15,12 @@ var ball = {
   },
 
   move: function () {
-    this.x += this.speed;
+    this.y += this.speed;
   },
 
   checkForBounce: function () {
-    if (this.x > width - this.size / 2) this.bounce();
-    if (this.x < 0 + this.size / 2) this.unbounce();
+    if (this.y > height - this.size / 2) this.bounce();
+    if (this.y < 0 + this.size / 2) this.unbounce();
   },
 
   bounce: function () {
@@ -36,7 +37,7 @@ var setup = function() {
 };
 
 var draw = function() { // draw is called 60 times per second; animation goes here.
-  background(100); // pay special attention to this line; what does it do?
+  background(0); // pay special attention to this line; what does it do?
   ball.display();
   ball.update();
 };
