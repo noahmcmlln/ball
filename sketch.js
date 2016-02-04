@@ -2,7 +2,8 @@ var ball = {
   x: 300,
   y: 200,
   size: 15,
-  speed: 3,
+  xspeed: 3,
+  yspeed: 3,
 
   display: function () {
     fill('#ff99ff');
@@ -10,26 +11,29 @@ var ball = {
   },
 
   update: function () {
-    this.checkForBounce();
-    this.move();
+    this.checkForBounceX();
+    this.checkForBounceY();
+    this.x += this.xspeed;
+    this.y += this.yspeed;
   },
 
-  move: function () {
-    this.y += this.speed;
+  checkForBounceX: function () {
+    if (this.x > width - this.size / 2) {
+      this.xspeed *= -1;
+    }
+    if (this.x < 0 + this.size / 2) {
+      this.xspeed*= -1;
+    }
   },
 
-  checkForBounce: function () {
-    if (this.y > height - this.size / 2) this.bounce();
-    if (this.y < 0 + this.size / 2) this.unbounce();
+  checkForBounceY: function () {
+    if (this.y > height - this.size / 2) {
+      this.yspeed *= -1;
+    }
+    if (this.y < 0 + this.size / 2) {
+      this.yspeed*= -1;
+    }
   },
-
-  bounce: function () {
-    this.speed = -3;
-  },
-
-  unbounce: function () {
-    this.speed = 3;
-  }
 };
 
 var setup = function() {
